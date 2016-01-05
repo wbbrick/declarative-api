@@ -1,0 +1,16 @@
+body {
+	background-color: #dadafa;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+.endpoint-block {
+	margin-left: 40px;
+}
+
+.label {
+	font-weight: bold;
+}
+
+.field-block {
+	margin-left: 20px;
+}

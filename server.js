@@ -5,10 +5,6 @@ var url = require('url');
 module.exports = function( options ) {
 		var app = express();
 
-		app.get('/', function (req, res) {
-				res.send('Hello World!');
-		});
-
 		function fieldsMatch( required, provided ) {
 				return _.intersection( required, provided ).length === required.length;
 		}
@@ -21,9 +17,14 @@ module.exports = function( options ) {
 						console.log('Listening at http://%s:%s', host, port);
 				});
 
+				//serve the documentation folder statically
+				app.use( '/documentation', express.static( __dirname + '/documentation' ) );
+
+				//serve up the endpoint information as JSON
 				app.get( '/endpoints', function( req, res ) {
 						res.send( _.omit( endpoints, 'function' ) );
 				} );
+
 				//listen to each endpoint as specified by the user
 				_.each( endpoints, function( endpoint, name ) {
 						app.get(endpoint.url, function( req, res ) {
