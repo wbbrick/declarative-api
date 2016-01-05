@@ -74,7 +74,11 @@ module.exports = function( options ) {
 								payload[field] = JSON.parse( req.body[field.toLowerCase()] );
 							} );
 							_.each( _.keys( optionalFields ), function( field ) {
-								payload[field] = JSON.parse( req.body[field.toLowerCase()] ) || null;
+								if( payload[field] ) {
+									payload[field] = JSON.parse( req.body[field.toLowerCase()] ) || null;
+								} else {
+									payload[field] = optionalFields[field].default;
+								}
 							} );
 						} else {
 							var error = 'A request must have a the following valid fields: ' +
