@@ -66,7 +66,7 @@ server.start( {
 	} );
 ```
 
-This will create server with two paths.  The path "/square" that takes a single argument, "num" (via GET, POST, or query string parameter) and returns the same number squared.  The base path provides a documentation for the API taken from the endpoint specification.
+This will create server with two paths.  The path "/square" that takes a single argument, "num" (via GET headers, POST payload, or query string parameter) and returns the same number squared.  The base path provides a documentation for the API taken from the endpoint specification.
 
 ## Required Endpoint Properties
 

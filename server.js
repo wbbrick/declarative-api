@@ -2,6 +2,7 @@ var express = require('express');
 var _ = require('lodash');
 var url = require('url');
 var validator = require('./validation/validate-endpoints.js');
+var bodyParser = require('body-parser');
 
 module.exports = function( options ) {
 	var app = express();
@@ -15,6 +16,9 @@ module.exports = function( options ) {
 		if( !_.isEmpty( errors ) ) {
 			console.log( errors.join( '\n' ) );
 		} else {
+			app.use( bodyParser.json() ); // support json encoded bodies
+			app.use( bodyParser.urlencoded( { extended: true } ) ); // support encoded bodies
+
 			var server = app.listen(options.port, options.host, function () {
 				var host = server.address().address;
 				var port = server.address().port;
@@ -46,6 +50,31 @@ module.exports = function( options ) {
 							} );
 							_.each( _.keys( optionalFields ), function( field ) {
 								payload[field] = req.headers[field.toLowerCase()] || null;
+							} );
+						} else {
+							var error = 'A request must have a the following valid fields: ' +
+									_.keys( requiredFields ).join( ', ' ) + '.';
+							res.send( {'result' : error } );
+							return;
+						}
+						var result = endpoint['function']( payload );
+						res.send( { 'result' : result } );
+					} catch( ex ) {
+						res.send( { 'result' : 'A server error occurred: ' + ex.message } );
+					}
+				}.bind( this ) );
+
+				app.post(endpoint.url, function( req, res ) {
+					try {
+						var requiredFields = endpoint.requiredFields;
+						var optionalFields = endpoint.optionalFields;
+						var payload = {};
+						if( fieldsMatch( _.keys( requiredFields ), _.keys( req.body ) ) ) {
+							_.each( _.keys( requiredFields ), function( field ) {
+								payload[field] = JSON.parse( req.body[field.toLowerCase()] );
+							} );
+							_.each( _.keys( optionalFields ), function( field ) {
+								payload[field] = JSON.parse( req.body[field.toLowerCase()] ) || null;
 							} );
 						} else {
 							var error = 'A request must have a the following valid fields: ' +

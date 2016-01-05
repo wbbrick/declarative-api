@@ -1,6 +1,6 @@
 {
   "name": "declarative-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A declarative REST API generator built on Express.js",
   "main": "server.js",
   "scripts": {
@@ -9,14 +9,15 @@
   },
   "keywords": [
     "server",
-	"api",
-	"rest",
-	"web",
-	"declarative"
+    "api",
+    "rest",
+    "web",
+    "declarative"
   ],
   "author": "Bryan Brick",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "1.14.2",
     "express": "4.13.3",
     "lodash": "3.10.1",
     "url": "0.11.0"
