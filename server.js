@@ -18,7 +18,7 @@ module.exports = function( options ) {
 				});
 
 				//serve the documentation folder statically
-				app.use( '/documentation', express.static( __dirname + '/documentation' ) );
+				app.use( '/', express.static( __dirname + '/documentation' ) );
 
 				//serve up the endpoint information as JSON
 				app.get( '/endpoints', function( req, res ) {
