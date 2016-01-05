@@ -7,8 +7,8 @@
     "test": "npm run test",
     "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Bryan Brick",
+  "license": "MIT",
   "dependencies": {
     "express": "4.13.3",
     "lodash": "3.10.1",
