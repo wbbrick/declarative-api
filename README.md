@@ -1,9 +1,9 @@
-# Easy Endpoint
+# Declarative API
 
 ```
-var easyEndpoint = require('./server');
+var declarativeApi = require('declarative-api');
 
-var server = easyEndpoint( {
+var server = declarativeApi( {
 	'port': '3000',
 	'host': '127.0.0.1'
 } );
@@ -21,14 +21,14 @@ var endpoint = {
 server.start( endpoint );
 ```
 
-Easy Endpoint is a library for quickly setting up a self-documenting REST endpoint declaratively.  It is built on top of [Express](http://expressjs.com/).  Please note the project is still in alpha - expect more updates to come soon, some potentially backwards-incompatible.  Easy Endpoint is designed to be fast and lightweight, but not terribly flexible - the idea is to quickly and easily expose any node library or API via a REST endpoint or set of endpoints.
+Declarative API is a library for quickly setting up a self-documenting REST endpoint declaratively.  It is built on top of [Express](http://expressjs.com/).  Please note the project is still in alpha - expect more updates to come soon, some potentially backwards-incompatible.  This library is designed to be fast and lightweight, but not terribly flexible - the idea is to quickly and easily expose any node library or API via a REST endpoint or set of endpoints.
 
 ## Installation
 
-As Easy Endpoint is still in alpha, there is no npm package for it yet.  However, you can easily add it to your node project with the following command:
+As Declarative API is still in alpha, there is no npm package for it yet.  However, you can easily add it to your node project with the following command:
 
 ```
-npm install git+git@github.com:wbbrick/easy-endpoint.git --save
+npm install git+git@github.com:wbbrick/declarative-api.git --save
 ```
 
 ## Quick Start
@@ -36,13 +36,13 @@ npm install git+git@github.com:wbbrick/easy-endpoint.git --save
 Once you've installed the library, open up main.js and require it like so:
 
 ```
-var easyEndpoint = require('easy-endpoint');
+var declarativeApi = require('declarative-api');
 ```
 
 From there, initialize a web server with the port and host specified as options:
 
 ```
-var server = easyEndpoint( {
+var server = declarativeApi( {
 	host: '127.0.0.1',
 	port: '3000'
 } );

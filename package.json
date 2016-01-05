@@ -1,10 +1,9 @@
 {
-  "name": "easy-endpoint",
+  "name": "declarative-api",
   "version": "0.0.1",
-  "description": "A declarative REST endpoint generator built on Express.js",
+  "description": "A declarative REST API generator built on Express.js",
   "main": "server.js",
   "scripts": {
-    "test": "npm run test",
     "start": "node server.js"
   },
   "author": "Bryan Brick",
