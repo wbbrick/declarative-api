@@ -11,7 +11,7 @@ module.exports = function( options ) {
 	}
 
 	this.start = function( endpoints ) {
-		var errors = validator( endpoints ).validateEndpoints;
+		var errors = validator.validateEndpoints( endpoints );
 		if( !_.isEmpty( errors ) ) {
 			console.log( errors.join( '\n' ) );
 		} else {
