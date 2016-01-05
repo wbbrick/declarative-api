@@ -70,14 +70,20 @@ module.exports = function( options ) {
 						var optionalFields = endpoint.optionalFields;
 						var payload = {};
 						if( fieldsMatch( _.keys( requiredFields ), _.keys( req.body ) ) ) {
-							_.each( _.keys( requiredFields ), function( field ) {
-								payload[field] = JSON.parse( req.body[field.toLowerCase()] );
-							} );
-							_.each( _.keys( optionalFields ), function( field ) {
-								if( payload[field] ) {
-									payload[field] = JSON.parse( req.body[field.toLowerCase()] ) || null;
+							_.each( requiredFields, function( data, field ) {
+								if( data.type === "Object" ) {
+									payload[field] = JSON.parse( req.body[field.toLowerCase()] );
 								} else {
-									payload[field] = optionalFields[field].default;
+									payload[field] = req.body[field.toLowerCase()];
+								}
+							} );
+							_.each( optionalFields, function( data, field ) {
+								if( payload[field] && data.type === "Object" ) {
+									payload[field] = JSON.parse( req.body[field.toLowerCase()] );
+								} else if ( payload[field] && data.type !== "Object" ) {
+									payload[field] = req.body[field.toLowerCase()];
+								} else {
+									payload[field] = data.default;
 								}
 							} );
 						} else {
@@ -97,5 +103,5 @@ module.exports = function( options ) {
 
 		};
 	};
-		return this;
+	return this;
 };
