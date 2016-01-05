@@ -1,7 +1,7 @@
 var express = require('express');
 var _ = require('lodash');
 var url = require('url');
-var validateEndpoints = require('./validation/validate-endpoints.js');
+var validator = require('./validation/validate-endpoints.js');
 
 module.exports = function( options ) {
 	var app = express();
@@ -11,8 +11,7 @@ module.exports = function( options ) {
 	}
 
 	this.start = function( endpoints ) {
-		var errors = validateEndpoints( endpoints );
-		console.log( errors );
+		var errors = validator( endpoints ).validateEndpoints;
 		if( !_.isEmpty( errors ) ) {
 			console.log( errors.join( '\n' ) );
 		} else {
