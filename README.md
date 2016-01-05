@@ -110,3 +110,10 @@ This is a description of the field.  It will appear in the auto-generated docume
 
 - Two routes are reserved, the base route ('/') and a route for serving up the endpoint information ('/endpoints').  If you attempt to use either of these routes as an endpoint, the app will fail.
 - This is still very much a work in progress, so expect bugs and gaps in functionality.  Any comments, issues, or pull requests are welcome!
+
+### TODOS
+
+- Validate request input by type
+- Provide more configuration options
+- Write tests
+- Provide examples
