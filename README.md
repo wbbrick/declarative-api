@@ -25,10 +25,8 @@ Declarative API is a library for quickly setting up a self-documenting REST endp
 
 ## Installation
 
-As Declarative API is still in alpha, there is no npm package for it yet.  However, you can easily add it to your node project with the following command:
-
 ```
-npm install git+git@github.com:wbbrick/declarative-api.git --save
+npm install declarative-api
 ```
 
 ## Quick Start
