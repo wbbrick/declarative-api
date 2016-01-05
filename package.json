@@ -1,0 +1,17 @@
+{
+  "name": "easy-endpoint",
+  "version": "0.0.1",
+  "description": "A declarative REST endpoint generator built on Express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.13.3",
+    "lodash": "3.10.1",
+    "url": "0.11.0"
+  }
+}
