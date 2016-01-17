@@ -36,7 +36,11 @@ module.exports = function() {
 	};
 
 	validator.validateEndpoints =  function( endpoints ) {
-		return _.filter( _.flattenDeep( _.map( endpoints, validator._validateEndpoint ) ), _.negate( _.isEmpty ) );
+		return _.chain( endpoints )
+			.map( validator._validateEndpoint )
+			.flattenDeep()
+			.filter( _.negate( _.isEmpty ) )
+			.value();
 	};
 
 	return validator;
