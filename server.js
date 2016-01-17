@@ -53,7 +53,7 @@ module.exports = function( options ) {
 							} );
 						} else {
 							var error = 'A request must have a the following valid fields: ' +
-									_.keys( requiredFields ).join( ', ' ) + '.';
+								_.keys( requiredFields ).join( ', ' ) + '.';
 							res.send( {'result' : error } );
 							return;
 						}
@@ -88,7 +88,7 @@ module.exports = function( options ) {
 							} );
 						} else {
 							var error = 'A request must have a the following valid fields: ' +
-									_.keys( requiredFields ).join( ', ' ) + '.';
+								_.keys( requiredFields ).join( ', ' ) + '.';
 							res.send( {'result' : error } );
 							return;
 						}
