@@ -88,7 +88,7 @@ This is a list of required fields.  If a request is made to the endpoint without
 
 This is a list of optional fields.  It is best to define default values for these in the function property.  Like the required fields, this can be empty.
 
-### functionality
+### function
 
 This is the function that is run when the endpoint is hit.  It takes all of the input (required and optional), performs a computation on the server, and returns the result as a JSON object.
 
