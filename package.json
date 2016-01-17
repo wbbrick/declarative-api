@@ -3,6 +3,11 @@
   "version": "0.0.5",
   "description": "A declarative REST API generator built on Express.js",
   "main": "server.js",
+  "repository" :
+  {
+    "type" : "git",
+	"url" : "git@github.com:wbbrick/declarative-api.git"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "./node_modules/.bin/mocha --reporter spec"
