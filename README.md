@@ -92,7 +92,7 @@ This is a list of optional fields.  It is best to define default values for thes
 
 This is the function that is run when the endpoint is hit.  It takes all of the input (required and optional), performs a computation on the server, and returns the result as a JSON object.
 
-## Required Field Properties
+## Field Properties
 
 Each field listed, whether required or optional, must have the following properties:
 
